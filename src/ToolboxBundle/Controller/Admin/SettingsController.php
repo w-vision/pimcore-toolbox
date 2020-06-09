@@ -3,7 +3,7 @@
 namespace ToolboxBundle\Controller\Admin;
 
 use Pimcore\Bundle\AdminBundle\Controller;
-use ToolboxBundle\Manager\ConfigManager;
+use Symfony\Component\HttpFoundation\Response;
 use ToolboxBundle\Manager\ConfigManagerInterface;
 
 class SettingsController extends Controller\AdminController
@@ -11,20 +11,33 @@ class SettingsController extends Controller\AdminController
     /**
      * @var array
      */
-    public $globalStyleSets = [];
+    protected $globalStyleSets = [];
 
     /**
      * @var array
      */
-    public $ckEditorObjectConfig = [];
+    protected $ckEditorObjectConfig = [];
 
     /**
      * @var array
      */
-    public $ckEditorAreaConfig = [];
+    protected $ckEditorAreaConfig = [];
 
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @var ConfigManagerInterface
+     */
+    protected $configManager;
+
+    /**
+     * @param ConfigManagerInterface $configManager
+     */
+    public function __construct(ConfigManagerInterface $configManager)
+    {
+        $this->configManager = $configManager;
+    }
+
+    /**
+     * @return Response
      *
      * @throws \Exception
      */
@@ -45,7 +58,7 @@ class SettingsController extends Controller\AdminController
     }
 
     /**
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
      *
      * @throws \Exception
      */
@@ -70,9 +83,7 @@ class SettingsController extends Controller\AdminController
      */
     private function setData()
     {
-        /** @var ConfigManagerInterface $toolboxConfig */
-        $toolboxConfig = $this->container->get(ConfigManager::class);
-        $ckEditorSettings = $toolboxConfig->getConfig('ckeditor');
+        $ckEditorSettings = $this->configManager->getConfig('ckeditor');
 
         $ckEditorGlobalConfig = $ckEditorSettings['config'];
 

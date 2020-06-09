@@ -126,7 +126,7 @@ Create download elements.
 
 | Name | Type | Description | Default Value | Frontend
 |------|------|-----------------------------|---------------|-------------------------------|
-| `downloads` | multihref | Add download files / folders | - | `pimcore_multihref('downloads')` |
+| `downloads` | relations | Add download files / folders | - | `pimcore_relations('downloads')` |
 | `show_preview_images` | checkbox | Display Preview Images | false | `pimcore_checkbox('show_preview_images')` |
 | `show_file_info` | checkbox | Display File Info | false | `pimcore_checkbox('show_file_info')` |
 | `additional_classes` | select | Add custom classes | - | see [section additional classes](#additional-classes) |
@@ -172,7 +172,7 @@ If you want to use a different extension to generate your galleries, just overri
 
 | Name | Type | Description | Default Value | Frontend
 |------|------|-----------------------------|---------------|-------------------------------|
-| `images` | multihref | Add images / folders | - | `pimcore_multihref('images')` |
+| `images` | relations | Add images / folders | - | `pimcore_relations('images')` |
 | `use_light_box` | checkbox | Add a `light-box` class and a wrapping link | false | `pimcore_checkbox('use_light_box')` |
 | `use_thumbnails` | checkbox | Add a thumbnail slider | false | `pimcore_checkbox('use_thumbnails')` |
 | `additional_classes` | select | Add custom classes | - | see [section additional classes](#additional-classes) |
@@ -320,7 +320,7 @@ Build a Parallax Container.
 | Name | Type | Description | Default Value | Frontend
 |------|------|-----------------------------|---------------|-------------------------------|
 | `template` | select | Define a Parallax Template | no-template | `pimcore_select('template')` |
-| `background_image` | href | Define a background image | - | `pimcore_href('background_image')` |
+| `background_image` | relation | Define a background image | - | `pimcore_relation('background_image')` |
 | `background_color` | select | Define a background color | no-background-color | `pimcore_select('background_color')` |
 | `image_front` | parallaximage | Parallax Images behind content | - | *not available* |
 | `image_behind` | parallaximage | Parallax Images in front of content | - | *not available* |
@@ -357,7 +357,7 @@ Build a Parallax Container Section.
 |------|------|-----------------------------|---------------|-------------------------------|
 | `template` | select | Define a Parallax Section Template | no-template | `pimcore_select('template')` |
 | `container_type` | select | Define a Container Type | none | `pimcore_select('container_type')` |
-| `background_image` | href | Define a background image | - | `pimcore_href('background_image')` |
+| `background_image` | relation | Define a background image | - | `pimcore_relation('background_image')` |
 | `background_color` | select | Define a background color | no-background-color | `pimcore_select('background_color')` |
 | `additional_classes` | select | Add custom classes | - | see [section additional classes](#additional-classes) |
 
