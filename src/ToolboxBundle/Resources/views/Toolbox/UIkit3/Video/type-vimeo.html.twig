@@ -6,11 +6,7 @@
     </a>
 {% else %}
     <iframe class="uk-responsive-width" src="https://player.vimeo.com/video/{{ videoId }}{{ autoPlay ? '?rel=0&autoplay=1&playsinline=1' }}"
-            {% if autoPlay %}
-                playsinline allow="autoplay;"
-                data-uk-video="autoplay: true"
-            {% endif %}
-            width="1920" height="1080" data-uk-responsive
+            {% if autoPlay %} playsinline allow="autoplay;" {% else %} data-uk-video="autoplay: false" {% endif %} width="1920" height="1080" data-uk-responsive
             {{ toolbox_data_attributes_generator('video_parameter', {'video_parameter' : videoParameter}, true)|raw }}>
     </iframe>
 {% endif %}
